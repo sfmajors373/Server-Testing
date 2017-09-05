@@ -1,12 +1,12 @@
 Recipes Api Docs
 ======
 
-##Get All Recipes
+## Get All Recipes
 ```
 GET /recipes
 ```
 
-###Response
+### Response
 | Status: 200 OK                                      |
 |-----------------------------------------------------|
 |{                                                    |
