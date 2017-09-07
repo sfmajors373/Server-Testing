@@ -1,0 +1,80 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{minted}
+
+\title{Recipes Api Documentation}
+
+\author{Sarah Majors}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Documentation for the Api created for Server Testing Assignment.
+\end{abstract}
+
+\section{Recipes}
+\label{sec: Recipes}
+
+\subsection{Get A Recipe}
+\begin{minted}{javascript}
+GET /recipes/:id
+\end{minted}
+Response: \\
+Status: 200 OK
+\begin{minted}{json}
+{
+  "id": "9874359248735938745",
+  "name": "Chocolate Cake",
+  "ingredients": {"flour", "sugar", "eggs", "cocoa"},
+  "steps": {"Sift flour", "Beat Eggs", "Bake"}
+}
+\end{minted}
+
+\subsection{Get All Recipes}
+\begin{minted}{javascript}
+GET /recipes
+\end{minted}
+Response: \\
+Status: 200 OK
+\begin{minted}{json}
+[
+  {
+    "id": "8743590187498172491",
+    "name": "Sugar Cookies",
+    "ingredients": {"flour", "sugar", "eggs", "icing"},
+    "steps": {"Mix ingredients", "Roll out and cut", "Bake", "Decorate"}
+  },
+  {
+    "id": "9874359248735938745",
+    "name": "Chocolate Cake",
+    "ingredients": {"flour", "sugar", "eggs", "cocoa"},
+    "steps": {"Sift flour", "Beat Eggs", "Bake"}
+  }
+]
+\end{minted}
+
+\subsection{Create A Recipe}
+\begin{minted}{javascript}
+POST /newrecipe
+\end{minted}
+Parameters \\
+\begin{table}[h]
+\centering
+\begin{tabular}{l|c|l}
+Name & Type & Description \\\hline
+Name & String & \textbf{REQUIRED} Name of Recipe \\
+Ingredients & Array & \textbf{REQUIRED} Array of strings of ingredients \\
+Steps & Array & Array of strings of directions to make recipe
+\end{tabular}
+\end{table}
+
+
+\end{document}
