@@ -38,28 +38,29 @@ describe('/recipes', () => {
         });
     });
   });
-  // describe('[POST] /newrecipe', () => {
-  //   it('should post a new recipe', (done) => {
-  //     const chocolateCake = {
-  //       name: 'Chocolate Cake',
-  //       ingredients: ['flour', 'sugar', 'eggs', 'cocoa'],
-  //       steps: ['Sift flour', 'Beat eggs', 'Bake']
-  //     }
-  //     chai.request(server)
-  //       .post('/newrecipe')
-  //       .send(chocolateCake)
-  //       .end((err, res) => {
-  //         if (err) {
-  //           console.log(err);
-  //         } else {
-  //           expect(res.status).to.equal(200);
-  //           expect(res.body.name).to.equal('Chocolate Cake');
-  //           expect(Array.isArray(res.body.ingredients)).to.equal(true);
-  //           expect(Array.isArray(res.body.steps)).to.equal(true);
-  //           done();
-  //         }
-  //       });
-  //   });
+  describe('[POST] /newrecipe', () => {
+    it('should post a new recipe', (done) => {
+      const chocolateCake = {
+        name: 'Chocolate Cake',
+        ingredients: ['flour', 'sugar', 'eggs', 'cocoa'],
+        steps: ['Sift flour', 'Beat eggs', 'Bake']
+      }
+      chai.request(server)
+        .post('/newrecipe')
+        .send(chocolateCake)
+        .end((err, res) => {
+          if (err) {
+            console.log(err);
+          } else {
+            expect(res.status).to.equal(200);
+            expect(res.body.name).to.equal('Chocolate Cake');
+            expect(Array.isArray(res.body.ingredients)).to.equal(true);
+            expect(Array.isArray(res.body.steps)).to.equal(true);
+            done();
+          }
+        });
+    });
+  });
   //   it('should not post a recipe without ingredients', (done) => {
   //     const chocolateCake = {
   //       name: 'Chocolate Cake',
