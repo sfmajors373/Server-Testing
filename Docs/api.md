@@ -49,3 +49,8 @@ Parameters
 | Name | String | **Required** Name of recipe |
 | Ingredients | Array | **Required** Array of strings of items required to make the recipe |
 | Steps | Array | Array of strings that indicate how to make the dish |
+
+
+### Curl
+GET: curl localhost:8080/recipes
+POST: curl -X POST -H "Content-Type: application/json" -d '{"name":"Hot Dog"}' localhost:8080/food

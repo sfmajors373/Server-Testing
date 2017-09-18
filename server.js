@@ -30,14 +30,20 @@ server.get('/recipe/:id', (req, res) => {
 });
 
 server.post('/newrecipe', (req, res) => {
-  const recipe = new Recipe(req.body);
-  recipe.save((err, newRecipe) => {
-    if (err) {
-      res.send(err);
-      return;
-    }
-    res.send(newRecipe);
-  });
+  const { name, ingredients, steps } = req.body;
+  if (!name || !ingredients) {
+    res.status(422);
+    res.send({ error: "please include name and ingredients" });
+  } else {
+    const recipe = new Recipe(req.body);
+    recipe.save((err, newRecipe) => {
+      if (err) {
+        res.send(err);
+        return;
+      }
+      res.send(newRecipe);
+    });
+  }
 });
 
 module.exports = server;
